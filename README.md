@@ -1,14 +1,5 @@
 # Resume Screener
-
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-
 AI-powered resume screening web app that parses candidate resumes, compares them against a job description, and ranks applicants by match score (0–100).
-
----
 
 ## Table of Contents
 
@@ -311,8 +302,4 @@ Contributions are welcome. Please open an issue or submit a pull request.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
----
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).

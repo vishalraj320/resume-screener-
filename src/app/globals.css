@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0f1419;
+  --foreground: #e7e9ea;
+  --card: #1a2332;
+  --card-border: #2f3b4f;
+  --primary: #1d9bf0;
+  --primary-hover: #1a8cd8;
+  --success: #00ba7c;
+  --warning: #ffad1f;
+  --danger: #f4212e;
+  --muted: #8b98a5;
+  --accent: #7856ff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.score-ring {
+  background: conic-gradient(
+    var(--primary) calc(var(--score) * 3.6deg),
+    var(--card-border) 0
+  );
+}

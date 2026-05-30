@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ScreeningSession {
+  id             String      @id @default(cuid())
+  jobTitle       String?
+  jobDescription String
+  status         String      @default("pending")
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+  resumes        Resume[]
+  candidates     Candidate[]
+}
+
+model Resume {
+  id           String           @id @default(cuid())
+  sessionId    String
+  session      ScreeningSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  fileName     String
+  filePath     String
+  mimeType     String
+  rawText      String?
+  parsedName   String?
+  parsedEmail  String?
+  parsedPhone  String?
+  parsedSkills String           @default("[]")
+  parsedExp    String?
+  parsedEdu    String?
+  createdAt    DateTime         @default(now())
+  candidate    Candidate?
+}
+
+model Candidate {
+  id              String           @id @default(cuid())
+  sessionId       String
+  session         ScreeningSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  resumeId        String           @unique
+  resume          Resume           @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  name            String
+  matchScore      Float
+  rank            Int
+  matchingSkills  String           @default("[]")
+  missingSkills   String           @default("[]")
+  skillsScore     Float
+  experienceScore Float
+  educationScore  Float
+  keywordScore    Float
+  summary         String?
+  createdAt       DateTime         @default(now())
+}
